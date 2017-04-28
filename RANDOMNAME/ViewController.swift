@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var TimeAvailable: UILabel!
     var time=10.0;
+ 
+
     @IBAction func ActionTapBar(_ sender: Any) {
         if(boi.score<=0)
         {   (sender as AnyObject).setTitle("TAP", for: .normal)
@@ -24,7 +26,7 @@ class ViewController: UIViewController {
         
         if(boi.score>50)
         {
-            time+=0.1;
+            time+=0.05;
             
         }
             else if(boi.score>100)
@@ -37,17 +39,20 @@ class ViewController: UIViewController {
         {
             
             timer.invalidate()
-            time = (-1)
+            //time = (-1)
             TimeAvailable.text="You were dragged out"
             
-            
+            boi.score=0
+            ;
+            //stop timer decrement
             (sender as AnyObject).setTitle("Tap to play again", for: .normal)
             boi.score=0
         }
         
     }
     var boi = oboi(name: "Placeholder",age: 0)
-    override func viewDidLoad() {
+    
+override func viewDidLoad() {
         super.viewDidLoad()
         
         boi=oboi(name:"Myank",age:18)
@@ -59,6 +64,7 @@ class ViewController: UIViewController {
     
     func action()
     {
+        time-=0.1
         if(time<=0)
         {
             
@@ -67,7 +73,7 @@ class ViewController: UIViewController {
             TimeAvailable.text="You were dragged out"
             
         }
-        time-=0.1
+       
         TimeAvailable.text="Distance: \(String(format: "%.1f", time))"
         ScoreLabel.text="Score: \(boi.score)"
         
