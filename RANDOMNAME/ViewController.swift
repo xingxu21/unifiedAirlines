@@ -9,53 +9,56 @@
 import UIKit
 
 class ViewController: UIViewController {
-        @IBOutlet weak var ScoreLabel: UILabel!
+    @IBOutlet weak var ScoreLabel: UILabel!
     var timer = Timer();
     
     @IBOutlet weak var TimeAvailable: UILabel!
-    var time=10.0;
+    var time=5.0;
  
 
-    @IBAction func ActionTapBar(_ sender: Any) {
-        if(boi.score<=0)
-        {   (sender as AnyObject).setTitle("TAP", for: .normal)
-            time=10.0
+    @IBOutlet weak var tapBar: UIButton! //same tapbar
+    @IBAction func ActionTapBar(_ sender: UIButton) {
+       // sender.tag = 0
+        
+        if(boi.score <= 0 || time == 0) //initialize
+        {
+            (sender as AnyObject).setTitle("TAP", for: .normal)
+            boi.score = 0
+            ScoreLabel.text="Score: \(boi.score)"
+
+            timer.invalidate()
             timer=Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ViewController.action), userInfo: nil, repeats: true)
+            time=5.0
+           
             
+          
         }
         
-        if(boi.score>50)
+        //score condition
+         if(boi.score>50)
         {
             time+=0.05;
             
         }
-            else if(boi.score>100)
+        else if(boi.score>100)
         {
             time+=0.05
         }
-        else{time+=0.2;}
-         boi.score+=1
-        if(time<=0)
+        else
         {
-            
-            timer.invalidate()
-            //time = (-1)
-            TimeAvailable.text="You were dragged out"
-            
-            boi.score=0
-            ;
-            //stop timer decrement
-            (sender as AnyObject).setTitle("Tap to play again", for: .normal)
-            boi.score=0
+            time+=0.2
         }
+        
+        boi.score+=1
+
         
     }
     var boi = oboi(name: "Placeholder",age: 0)
     
 override func viewDidLoad() {
         super.viewDidLoad()
-        
-        boi=oboi(name:"Myank",age:18)
+    TimeAvailable.text = "Distance: \(String(format: "%.1f", time))"
+        boi=oboi(name:"Boy",age:0)
         
         ScoreLabel.text="Score: \(boi.score)"
     }
@@ -68,14 +71,19 @@ override func viewDidLoad() {
         if(time<=0)
         {
             
-            timer.invalidate()
-            time = (-1)
+            
+            time = (0)
             TimeAvailable.text="You were dragged out"
+            //timer.invalidate()
+            tapBar.setTitle("Try again", for: .normal)
+            boi.score = 0
             
         }
-       
-        TimeAvailable.text="Distance: \(String(format: "%.1f", time))"
-        ScoreLabel.text="Score: \(boi.score)"
+       else
+        {
+            TimeAvailable.text="Distance: \(String(format: "%.1f", time))"
+            ScoreLabel.text="Score: \(boi.score)"
+        }
         
        
     }

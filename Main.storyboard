@@ -96,7 +96,7 @@
                                     <action selector="ActionTapBar:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Ii-cj-MFv"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Distance: 10" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sZC-H2-cnr">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Distance: " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sZC-H2-cnr">
                                 <rect key="frame" x="0.0" y="441" width="375" height="71"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -109,6 +109,7 @@
                     <connections>
                         <outlet property="ScoreLabel" destination="tS9-gC-9ZR" id="8ug-UB-Z9D"/>
                         <outlet property="TimeAvailable" destination="sZC-H2-cnr" id="e6L-0u-evU"/>
+                        <outlet property="tapBar" destination="btk-TZ-M37" id="fva-OY-0m3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
