@@ -10,12 +10,13 @@ import UIKit
 
 class firstViewController: UIViewController {
 
+    @IBOutlet weak var nameLabel: UILabel!
       
     override func viewDidLoad() {
         super.viewDidLoad()
 
        
-
+        nameLabel.transform = CGAffineTransform(rotationAngle: 7.15 * CGFloat.pi/4)
 
         // Do any additional setup after loading the view.
     }
